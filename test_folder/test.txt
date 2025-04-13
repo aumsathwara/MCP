@@ -1,6 +1,0 @@
-test contentThis is updated content for the text file. The file was modified on April 5, 2025.In test_folder, a file named test.txt,
-Contains a poem about a dog, no less.
-With wagging tail and happy bark,
-He leaves his mark upon the dark.
-A loyal friend, a furry mate,
-He seals his fate, it seems, in state.
