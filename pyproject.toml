@@ -14,3 +14,8 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+
+[project.scripts]
+fs-mcp-server = "custom_mcp.server:main" 
+fs-mcp-client = "custom_mcp.client:main"  

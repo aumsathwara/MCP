@@ -101,5 +101,9 @@ async def search_file(file_extension: str, search_dir: str = str(Path.cwd())) ->
     except Exception as e:
         return [{"type": "text", "text": f"Error: {str(e)}"}]
 
-if __name__ == "__main__":
+def main():
     mcp.run(transport='stdio')
+    
+    
+if __name__ == "__main__":
+    main()

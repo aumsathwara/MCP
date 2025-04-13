@@ -28,18 +28,33 @@ class MCPClient:
         Args:
             server_script_path: Path to the server script (.py or .js)
         """
-        is_python = server_script_path.endswith('.py')
-        is_js = server_script_path.endswith('.js')
-        if not (is_python or is_js):
-            raise ValueError("Server script must be a .py or .js file")
+        # is_python = server_script_path.endswith('.py')
+        # is_js = server_script_path.endswith('.js')
+        # if not (is_python or is_js):
+        #     raise ValueError("Server script must be a .py or .js file")
             
-        command = "python" if is_python else "node"
-        server_params = StdioServerParameters(
-            command=command,
-            args=[server_script_path],
-            env=None
-        )
+        # command = "python" if is_python else "node"
+        # server_params = StdioServerParameters(
+        #     command=command,
+        #     args=[server_script_path],
+        #     env=None
+        # )
         
+        
+        if server_script_path == "fs-mcp-server":
+            command = "fs-mcp-server"  # the console script
+            args = []
+        elif server_script_path.endswith('.py'):
+            command = "python"
+            args = [server_script_path]
+        elif server_script_path.endswith('.js'):
+            command = "node"
+            args = [server_script_path]
+        else:
+            raise ValueError("Server script must be a .py, .js file, or 'mcp-server'.")
+        
+        server_params = StdioServerParameters(command=command, args=args, env=None)
+
         stdio_transport = await self.exit_stack.enter_async_context(stdio_client(server_params))
         self.stdio, self.write = stdio_transport
         self.session = await self.exit_stack.enter_async_context(ClientSession(self.stdio, self.write))
