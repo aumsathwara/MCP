@@ -1,0 +1,3 @@
+include README.md
+recursive-include src/custom_mcp *.py
+
