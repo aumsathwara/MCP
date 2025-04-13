@@ -202,6 +202,7 @@ async def async_main(server_script_path: str):
 
 def main():
     """Synchronous entry point for console script fs-mcp-client."""
+    import sys
     if len(sys.argv) < 2:
         print("Usage: fs-mcp-client path/to/server.py (or fs-mcp-server)")
         sys.exit(1)
