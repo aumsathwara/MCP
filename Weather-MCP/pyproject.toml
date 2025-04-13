@@ -1,0 +1,20 @@
+[project]
+name = "Weather-MCP"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp[cli]>=1.6.0",
+]
+
+[tool.uv.workspace]
+members = ["mcp-client"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
+[project.scripts]
+weather-mcp-server = "weather-mcp.weather:main" 

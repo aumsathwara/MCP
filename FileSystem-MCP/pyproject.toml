@@ -1,0 +1,21 @@
+[project]
+name = "FileSystem-MCP"
+version = "0.1.0"
+description = "FileSystem MCP"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "google-genai>=1.9.0",
+    "google-generativeai>=0.8.4",
+    "mcp[cli]>=1.6.0",
+    "openai>=1.70.0",
+]
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
+[project.scripts]
+fs-mcp-server = "custom_mcp.server:main" 
+fs-mcp-client = "custom_mcp.client:main"  
