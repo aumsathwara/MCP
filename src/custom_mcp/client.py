@@ -185,20 +185,30 @@ class MCPClient:
 
 
 
-async def main():
-    if len(sys.argv) < 2:
-        print("Usage: python client.py <path_to_server_script>")
-        sys.exit(1)
+async def async_main(server_script_path: str):
+    # if len(sys.argv) < 2:
+    #     print("Usage: python client.py <path_to_server_script>")
+    #     sys.exit(1)
         
     client = MCPClient()
     try:
-        await client.connect_to_server(sys.argv[1])
+        # Connect to the server
+        await client.connect_to_server(server_script_path)
+        # Start your chat loop
         await client.chat_loop()
     finally:
         await client.cleanup()
 
 
+def main():
+    """Synchronous entry point for console script fs-mcp-client."""
+    if len(sys.argv) < 2:
+        print("Usage: fs-mcp-client path/to/server.py (or fs-mcp-server)")
+        sys.exit(1)
+    
+    server_script_path = sys.argv[1]    
+    asyncio.run(async_main(server_script_path))
+    
 
 if __name__ == "__main__":
-    import sys
-    asyncio.run(main())
+    main()
