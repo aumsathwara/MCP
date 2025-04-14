@@ -1,0 +1,10 @@
+[project]
+name = "mcp-all"        
+version = "0.1.0"
+description = "Install all MCP servers at once"
+requires-python = ">=3.12"
+
+
+[project.dependencies]
+filesystem-mcp = { git = "https://github.com/YourUser/MCP.git", rev = "multiple-mcps", subdirectory = "FileSystem-MCP" }
+weather-mcp = { git = "https://github.com/YourUser/MCP.git", rev = "multiple-mcps", subdirectory = "Weather-MCP" }
