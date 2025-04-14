@@ -17,4 +17,4 @@ where = ["src"]
 
 
 [project.scripts]
-weather-mcp-server = "weather-mcp.weather:main" 
+weather-mcp-server = "weather_mcp.weather:main" 
