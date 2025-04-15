@@ -31,10 +31,14 @@ MCP/
 
 If you want **all** sub-projects in one environment, simply install the **top-level** project:
 
+1) Case 1: If you have already setup uv project then: 
 ```bash
 uv add "git+https://github.com/aumsathwara/MCP.git@multiple-mcps"
 ```
-
+2) Case 2: If you haven't setup uv project then:
+```bash
+uv pip install "git+https://github.com/aumsathwara/MCP.git@multiple-mcps"
+```
 This pulls in the main monorepo at branch `multiple-mcps` and installs the top-level project as configured in `pyproject.toml`. Depending on your configuration, this may install all dependencies shared across the repository (though it might not pull in the subdirectory packages if they’re not referenced in the top-level pyproject). If you have references to each MCP at the top level, it should install them all.
 
 > **Note**: If you see “Workspace dependency… must refer to local directory” or a similar error, you might need to install each sub-package separately (see below). Some versions of uv do not allow a single aggregator approach.
